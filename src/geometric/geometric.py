@@ -292,7 +292,7 @@ class Geometria:
         Returns:
             float: Pendiente de la recta
         """
-        pass
+        return (y2 - y1) / (x2 - x1)
     
     def ecuacion_recta(self, x1, y1, x2, y2):
         """
@@ -307,7 +307,9 @@ class Geometria:
         Returns:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """
-        pass
+        A = y2 - y1
+        B = x2 - x1
+        C = x1 * y2 - x2 * y1
     
     def area_poligono_regular(self, num_lados, lado, apotema):
         """
