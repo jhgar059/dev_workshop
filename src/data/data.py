@@ -14,7 +14,10 @@ class Data:
         Returns:
             list: Lista con los elementos en orden inverso
         """
-        pass
+        lista_modificada = []
+        for i in range(len(lista) - 1, -1, -1):
+            lista_modificada.append(lista[i])
+        return lista_modificada
     
     def buscar_elemento(self, lista, elemento):
         """
@@ -28,7 +31,11 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        for i, valor in enumerate(lista):
+            if valor == elemento:
+              return i 
+        return -1
+    
     
     def eliminar_duplicados(self, lista):
         """
