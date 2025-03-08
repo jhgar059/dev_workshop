@@ -48,7 +48,13 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        lista_normal = []
+        componentes_revisados = []
+        for elemento in lista:
+            if (elemento, type(elemento)) not in componentes_revisados:
+                lista_normal.append(elemento)
+                componentes_revisados.append ((elemento, type(elemento))) 
+                return componentes_revisados
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -61,7 +67,19 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        x = 0
+        y = 0
+        total = []
+        while x < len(lista1) and y < len(lista2):
+            if lista1[x] <= lista2[y]:
+                total.append(lista[x])
+                x += 1
+            else:
+                total.append (lista2[y])
+                y +=1 
+                total.extend(lista1[x:])
+                total.extend(lista2[y:])  
+
     
     def rotar_lista(self, lista, k):
         """
