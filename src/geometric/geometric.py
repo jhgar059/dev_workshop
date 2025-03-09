@@ -41,7 +41,7 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        return math.pi * (radio)^2
+        return math.pi ** 2
     
     def perimetro_circulo(self, radio):
         """
@@ -310,8 +310,8 @@ class Geometria:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """
         A = y2 - y1
-        B = x2 - x1
-        C = (x1 * y2) - (x2 * y1)
+        B = x1 - x2
+        C = (x2 * y1) - (x1 * y2)
         resultado = (A, B, C)
         return resultado
     
@@ -327,7 +327,7 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        if num_lad==4:
+        if num_lados == 4:
             resultado=lado **2
             return resultado
         else:
