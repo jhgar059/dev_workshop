@@ -42,7 +42,8 @@ class Strings:
         Returns:
             int: Número de vocales en la cadena
         """
-        pass
+        vocales = "euioaEUIOA"
+        return sum(1 for char in texto if char.isalpha() and char not in vocales)
     
     def contar_consonantes(self, texto):
         """
@@ -54,7 +55,8 @@ class Strings:
         Returns:
             int: Número de consonantes en la cadena
         """
-        pass
+        vocales ="euioaEUIOA"
+        return sum(1 for char in texto if char.isalpha() and char not in vocales)
     
     def es_anagrama(self, texto1, texto2):
         """
