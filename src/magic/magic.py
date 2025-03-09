@@ -92,7 +92,7 @@ class Magic:
             fila = [1]
             if resultado:
                 ultimafila = resultado[-1]
-                fila.extend8([ultima_fila[h] + ultimafila[h + 1]for h in range(len(ultimafila)-1)])
+                fila.extend8([ultimafila[h] + ultimafila[h + 1]for h in range(len(ultimafila)-1)])
                 fila.append (1)
             resultado.append(fila)
         return resultado
@@ -140,7 +140,7 @@ class Magic:
         Returns:
             int: El mínimo común múltiplo de a y b
         """
-        pass
+        return abs (a * b) // self.mcd (a, b)
     
     def suma_digitos(self, n):
         """
@@ -152,7 +152,7 @@ class Magic:
         Returns:
             int: La suma de los dígitos de n
         """
-        pass
+        return sum (int(digito)for digito in str(n))
     
     def es_numero_armstrong(self, n):
         """
