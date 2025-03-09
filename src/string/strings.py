@@ -93,7 +93,7 @@ class Strings:
         Returns:
             str: Cadena con la primera letra de cada palabra en mayúscula
         """
-        pass
+        return  " ".join(p.capitalize() for p in texto.split())
     
     def eliminar_espacios_duplicados(self, texto):
         """
@@ -105,7 +105,7 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        pass
+        return " ".join(texto.split())
     
     def es_numero_entero(self, texto):
         """
