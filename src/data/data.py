@@ -72,7 +72,7 @@ class Data:
         total = []
         while x < len(lista1) and y < len(lista2):
             if lista1[x] <= lista2[y]:
-                total.append(lista[x])
+                total.append(lista1[x])
                 x += 1
             else:
                 total.append (lista2[y])
@@ -81,7 +81,7 @@ class Data:
                 total.extend(lista2[y:])  
 
     
-    def rotar_lista(self, lista, k):
+    def rotar_lista(self, lista, h):
         """
         Rota los elementos de una lista k posiciones a la derecha.
         
@@ -92,7 +92,11 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        if not lista:
+            return []
+        h = h % len(lista)
+        return lista[-h:] + lista[-h:] 
+
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -104,7 +108,10 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        l = len(lista) + 1
+        suma_guardada = n * (n + 1) // 2
+        suma_actualizada = sum(lista) 
+        return suma_guardada - suma_actualizada 
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
