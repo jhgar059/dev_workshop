@@ -125,8 +125,8 @@ class Strings:
         if not texto:
             return False
         if texto[0] in "-":
-            texto=texto[1:]
-        return texto.isdidit()
+            texto = texto[1:]
+        return texto.isdigit()
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
