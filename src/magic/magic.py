@@ -48,10 +48,10 @@ class Magic:
         """
         if n < 2:
             return False
-        for i in range(2, int(n**0.5) + 1):
+        for i in range(2, int(n ** 0.5) + 1):
             if n % i == 0:
                 return False
-            return True
+        return True
     
     def generar_primos(self, n):
         """
@@ -63,7 +63,16 @@ class Magic:
         Returns:
             list: Lista de números primos hasta n
         """
-        return [num for num in range(2, n + 1) if self.es_primo(num)]
+        if n < 2:
+            return []
+        gen = [True] * (n + 1)
+        gen [0] = gen[1] = False
+        for j in range(2, int(n ** 0.5) + 1):
+            if gen[j]:
+                for i in range(j * j, n + 1, j):
+                    gen[i] = false
+        return [j for j in range(n + 1) if gen]
+
     
     def es_numero_perfecto(self, n):
         """
@@ -75,7 +84,10 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        return n == sum(i for i in range(1, n) if n % i == 0)
+        if n < 2:
+            return False
+        sum_div = sum(i for i in range(1, n // 2 + 1)if n % i == o)
+        return sum_div == n
     
     def triangulo_pascal(self, filas):
         """
@@ -87,15 +99,22 @@ class Magic:
         Returns:
             list: Lista de listas que representa el triángulo de Pascal
         """
-        resultado = []
-        for i in range(filas):
-            fila = [1]
-            if resultado:
-                ultimafila = resultado[-1]
-                fila.extend8([ultimafila[h] + ultimafila[h + 1]for h in range(len(ultimafila)-1)])
-                fila.append (1)
-            resultado.append(fila)
-        return resultado
+        if filas < 0:
+            raise ValueError("Las filas no deben ser negativo")
+        if filas == 0:
+            return []
+        triangulo = [[1]]
+        for i in range(1, filas):
+            prev = triangulo[-1]
+            nueva_fila = [1]
+            for j in range(1, i):
+                nueva_fila.append(prev[j-1] + prev[j])
+            nueva_fila.append(1)
+            triangulo.append(nueva_fila)
+        return triangulo
+
+
+
 
     
     def factorial(self, n):
