@@ -66,12 +66,12 @@ class Magic:
         if n < 2:
             return []
         gen = [True] * (n + 1)
-        gen [0] = gen[1] = False
+        gen[0] = gen[1] = False
         for j in range(2, int(n ** 0.5) + 1):
             if gen[j]:
                 for i in range(j * j, n + 1, j):
                     gen[i] = False
-        return [j for j in range(n + 1) if gen]
+        return [j for j in range(n + 1) if gen[j]]
 
     
     def es_numero_perfecto(self, n):
