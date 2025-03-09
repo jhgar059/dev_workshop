@@ -332,7 +332,7 @@ class Geometria:
             float: Área del polígono regular
         """
         perimetro = num_lados * lado
-        return (perimetro * apotema) / 2
+        return (perimetro * apotema)/2
        
     def perimetro_poligono_regular(self, num_lados, lado):
         """
