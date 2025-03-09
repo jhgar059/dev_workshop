@@ -48,13 +48,11 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        lista_normal = []
-        componentes_revisados = []
-        for elemento in lista:
-            if (elemento, type(elemento)) not in componentes_revisados:
-                lista_normal.append(elemento)
-                componentes_revisados.append ((elemento, type(elemento))) 
-                return componentes_revisados
+        lista_nueva =[]
+        for item in lista:
+            if item not in lista_nueva:
+                lista_nueva.append(item)
+        return lista_nueva    
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -77,8 +75,9 @@ class Data:
             else:
                 total.append (lista2[y])
                 y +=1 
-                total.extend(lista1[x:])
-                total.extend(lista2[y:])  
+        total.extend(lista1[x:])
+        total.extend(lista2[y:])
+        return total  
 
     
     def rotar_lista(self, lista, h):
@@ -95,7 +94,7 @@ class Data:
         if not lista:
             return []
         h = h % len(lista)
-        return lista[-h:] + lista[-h:] 
+        return lista[-h:] + lista[ :-h] 
 
     
     def encuentra_numero_faltante(self, lista):
@@ -108,7 +107,7 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        l = len(lista) + 1
+        n = len(lista) + 1
         suma_guardada = n * (n + 1) // 2
         suma_actualizada = sum(lista) 
         return suma_guardada - suma_actualizada 
@@ -141,8 +140,8 @@ class Data:
         return {
             "Push": lambda x: pila.append(x),
             "pop": lambda: pila.pop () if pila else None,
-        "peek": lambda: pila[-1] if pila else None,
-        "is_empty": lambda: len(pila) == 0
+            "peek": lambda: pila[-1] if pila else None,
+            "is_empty": lambda: len(pila) == 0
         }
 
     
@@ -157,7 +156,7 @@ class Data:
         return {
             "enqueue": lambda x: cola.append(x),
             "dequeue": lambda: cola.pop(0)  if cola else None,
-            "ppek": lambda: cola[0] if cola else None,
+            "peek": lambda: cola[0] if cola else None,
             "is_empty": lambda: len(cola) == 0 
         }
     
