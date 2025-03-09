@@ -164,7 +164,8 @@ class Magic:
         Returns:
             bool: True si n es un número de Armstrong, False en caso contrario
         """
-        pass
+        digitos = [int(d) for d in str(n)]
+        return n == sum(d**len(digitos) for d in digitos)
     
     def es_cuadrado_magico(self, matriz):
         """
@@ -176,4 +177,22 @@ class Magic:
         Returns:
             bool: True si es un cuadrado mágico, False en caso contrario
         """
-        pass
+        if not matriz:
+            return False
+        x = len(matriz)
+        suma_ref = sum (matriz[0])
+
+        for fila in matriz:
+            if sum(fila) != suma_ref:
+                return False
+
+        for col in range(x):
+            if sum(matriz[fila][col] for fila in range(x)) !=suma_ref:
+                return False
+
+        if sum(matriz[i][i] for i in range(x)) != suma_ref:
+            return False
+        if sum(matriz[i][x - 1 - i] for i in range(x)) != suma_ref:
+            return False
+        return True    
+
