@@ -153,7 +153,13 @@ class Data:
         Returns:
             dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
         """
-        pass
+        cola = []
+        return {
+            "enqueue": lambda x: cola.append(x),
+            "dequeue": lambda: cola.pop(0)  if cola else None,
+            "ppek": lambda: cola[0] if cola else None,
+            "is_empty": lambda: len(cola) == 0 
+        }
     
     def matriz_transpuesta(self, matriz):
         """
@@ -165,4 +171,6 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        if not matriz:
+            return[]
+        return [[matriz[z][p] for z in range(len(matriz))] for p in range(len(matriz[0]))]
