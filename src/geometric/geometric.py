@@ -41,7 +41,7 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        return math.pi * radio
+        return math.pi * (radio)^2
     
     def perimetro_circulo(self, radio):
         """
@@ -262,7 +262,9 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        return math.sqrt((x2-x1) ** 2 + (y2-y1) ** 2) 
+        
+        resultado=math.sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)))
+        return round(resultado,2) 
     
     def punto_medio(self, x1, y1, x2, y2):
         """
@@ -309,7 +311,9 @@ class Geometria:
         """
         A = y2 - y1
         B = x2 - x1
-        C = x1 * y2 - x2 * y1
+        C = (x1 * y2) - (x2 * y1)
+        resultado = (A, B, C)
+        return resultado
     
     def area_poligono_regular(self, num_lados, lado, apotema):
         """
@@ -323,7 +327,12 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        return (num_lados * lado * apotema) / 2
+        if num_lad==4:
+            resultado=lado **2
+            return resultado
+        else:
+            resultado=((num_lados*lado)*apotema)/2
+            return round(resultado,2)
     
     def perimetro_poligono_regular(self, num_lados, lado):
         """
