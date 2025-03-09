@@ -48,7 +48,7 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        lista_nueva =[]
+        lista_nueva = []
         for item in lista:
             if item not in lista_nueva:
                 lista_nueva.append(item)
@@ -138,8 +138,8 @@ class Data:
         """
         pila = []
         return {
-            "Push": lambda x: pila.append(x),
-            "pop": lambda: pila.pop () if pila else None,
+            "push": lambda x: pila.append(x),
+            "pop": lambda: pila.pop() if pila else None,
             "peek": lambda: pila[-1] if pila else None,
             "is_empty": lambda: len(pila) == 0
         }
