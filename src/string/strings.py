@@ -30,7 +30,7 @@ class Strings:
         resultado = ""
         for char in texto:
             resultado = char + resultado
-            return resultado
+        return resultado
     
     def contar_vocales(self, texto):
         """
@@ -43,7 +43,7 @@ class Strings:
             int: Número de vocales en la cadena
         """
         vocales = "euioaEUIOA"
-        return sum(1 for char in texto if char.isalpha() and char not in vocales)
+        return sum(1 for char in texto if char in vocales)
     
     def contar_consonantes(self, texto):
         """
@@ -93,7 +93,7 @@ class Strings:
         Returns:
             str: Cadena con la primera letra de cada palabra en mayúscula
         """
-        return  " ".join(p.capitalize() for p in texto.split())
+        return  " ".join([palabra.capitalize() for palabra in texto.split(" ")])
     
     def eliminar_espacios_duplicados(self, texto):
         """
@@ -105,7 +105,11 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        return " ".join(texto.split())
+        inicio = " " if texto.startswith(" ") else ""
+        fin = " " if texto.endswith(" ") else ""
+        return inicio + " ".join(texto.split()) + fin
+
+    
     
     def es_numero_entero(self, texto):
         """
@@ -117,11 +121,12 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
+        texto =  texto.strip()
         if not texto:
             return False
-        if texto[0] in "-+":
+        if texto[0] in "-":
             texto=texto[1:]
-            return all(char.isdigit() for char in texto)
+        return texto.isdidit()
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
