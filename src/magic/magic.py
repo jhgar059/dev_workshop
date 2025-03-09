@@ -70,7 +70,7 @@ class Magic:
         for j in range(2, int(n ** 0.5) + 1):
             if gen[j]:
                 for i in range(j * j, n + 1, j):
-                    gen[i] = false
+                    gen[i] = False
         return [j for j in range(n + 1) if gen]
 
     
@@ -86,7 +86,7 @@ class Magic:
         """
         if n < 2:
             return False
-        sum_div = sum(i for i in range(1, n // 2 + 1)if n % i == o)
+        sum_div = sum(i for i in range(1, n // 2 + 1)if n % i == 0)
         return sum_div == n
     
     def triangulo_pascal(self, filas):
