@@ -34,7 +34,7 @@ class Magic:
         sec = [0 ,1]
         for i in range(2, n):
             sec.append(sec[-1] + sec[-2])
-        returnsec[:n]    
+        return sec[:n]    
     
     def es_primo(self, n):
         """
